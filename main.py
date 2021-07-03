@@ -4,7 +4,7 @@ from joblib import load
 from json import loads
 from kafka import KafkaConsumer
 from pymongo import MongoClient
-from formatter.py import formatRawData
+from formatter import formatRawData
 
 sio = socketio.Client()
 sio.connect("http://0.0.0.0:4444", namespaces='/sensor')
