@@ -1,0 +1,1 @@
+# x = np.transpose(scaler.fit_transform(data[:, np.newaxis])).tolist()
