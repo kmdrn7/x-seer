@@ -38,7 +38,7 @@ consumer = KafkaConsumer(
 api_call = requests.get("{}/api/v1/sensor/{}".format(config['MLSERVER_URL'], config['SENSOR_SERIAL']))
 response = loads(api_call.content)
 features = str(response['data']['model']['features']).replace('\'', '').split(', ')
-clf = load(urlopen(response['data']['model']['joblib']))
+clf = load(urlopen("{}/api/v1/sensor/{}/model".format(config['MLSERVER_URL'], config['SENSOR_SERIAL'])))
 
 for message in consumer:
     data = pd.DataFrame([formatRawData(message.value)])[features].to_numpy()[0]
