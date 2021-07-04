@@ -1,7 +1,8 @@
 import os
+from dotenv import load_dotenv
 
 def prepareConfiguration():
-
+  load_dotenv()
   config = {}
 
   config['SOCKET_SERVER'] = os.environ.get('SOCKET_SERVER')
