@@ -2,8 +2,8 @@ FROM python:3.8-slim-buster
 
 # PREPARE DEPENDENCIES AND APP
 WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install wheel pandas python-socketio[client] \
+    python-dotenv joblib kafka-python pymongo requests
 COPY . .
 
 # SET ENVIRONMENT
@@ -13,7 +13,7 @@ ENV MONGODB_CONNECTION_STRING mongodb://ta:ta@192.168.100.29:27018/?authSource=a
 ENV MONGODB_DATABASE iot_malware_detection
 ENV KAFKA_CONSUMER_TOPIC iot_gateway_netflow
 ENV KAFKA_HOST 192.168.100.29
-ENV KAFKA_PORT 19029
+ENV KAFKA_PORT 19092
 ENV KAFKA_CLIENT_ID RTD-1
 ENV KAFKA_GROUP_ID RTD
 ENV SENSOR_SERIAL 95fe60ed-9754-4579-be92-943da7bd0fda
