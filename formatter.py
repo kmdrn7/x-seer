@@ -4,7 +4,7 @@ def formatRawData(raw):
         'Src IP': raw['src_ip'],
         'Src Port': raw['src_port'],
         'Dst IP': raw['dst_ip'],
-        'Dst Port': raw['dst_ip'],
+        'Dst Port': raw['dst_port'],
         'Protocol': raw['protocol'],
         'Timestamp': raw['timestamp'],
         'Flow Duration': raw['extractFeature']['flow_duration'],
