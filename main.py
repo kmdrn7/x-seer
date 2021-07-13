@@ -8,12 +8,11 @@ from json import loads
 from kafka import KafkaConsumer
 from pymongo import MongoClient
 from formatter import formatRawData
-from config import prepareConfiguration, getOnlineConfiguration
+from config import prepareConfiguration, printConfiguration
 
 logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
-logging.info('Starting seer')
+logging.info('Starting seer...')
 config = prepareConfiguration()
-config = getOnlineConfiguration(config)
 
 sio = socketio.Client()
 sio.connect("{}/socket.io/?sensor_serial={}".format(config['SOCKET_SERVER'], config['SENSOR_SERIAL']), namespaces='/sensor')
