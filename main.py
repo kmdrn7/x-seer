@@ -8,7 +8,7 @@ from json import loads
 from kafka import KafkaConsumer
 from pymongo import MongoClient
 from formatter import formatRawData
-from config import prepareConfiguration, printConfiguration
+from config import prepareConfiguration
 
 logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
 logging.info('Starting seer...')
